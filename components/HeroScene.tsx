@@ -318,7 +318,7 @@ function ComputerScreen({
     "Jupyter Notebook",
   ];
 
-  const cubeSkills = ["AI", "ML", "API", "CV", "WEB", "DEV"];
+  const cubeSkills = ["AI", "ML", "API", "CV", "WEB-DEV", "DL"];
 
   const projects = [
     {
@@ -1081,17 +1081,7 @@ function ComputerScreen({
     }}
   >
     <div>
-      <div
-        style={{
-          fontSize: "13px",
-          fontWeight: 950,
-          color: "#67e8f9",
-          letterSpacing: "1px",
-          marginBottom: "6px",
-        }}
-      >
-        SELECTED WORK
-      </div>
+     
 
       <h2
         style={{
