@@ -1022,8 +1022,8 @@ function ComputerScreen({
                   <div className="cube-face back">ML</div>
                   <div className="cube-face right">API</div>
                   <div className="cube-face left">CV</div>
-                  <div className="cube-face top">WEB</div>
-                  <div className="cube-face bottom">DEV</div>
+                  <div className="cube-face top">DL</div>
+                  <div className="cube-face bottom">WEB-DEV</div>
                 </div>
 
                 {cubeSkills.map((skill, index) => (
