@@ -1649,9 +1649,9 @@ export default function HeroScene() {
 
   const cameraFov = isPhone ? 45 : isTablet ? 41 : isSmallLaptop ? 38 : 35;
   const sceneScale = isPhone
-    ? 0.65
+    ? 0.88
     : isTablet
-      ? 0.82
+      ? 0.88
       : isSmallLaptop
         ? 0.96
         : 1.08;
