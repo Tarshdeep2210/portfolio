@@ -8,7 +8,7 @@ import {
   OrbitControls,
   Stars,
 } from "@react-three/drei";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import * as THREE from "three";
 
 function Desk() {
@@ -1504,10 +1504,37 @@ function FloatingDecor() {
 
 export default function HeroScene() {
   const [speakersActive, setSpeakersActive] = useState(false);
+  const [mobile, setMobile] = useState(false);
+
+  useEffect(() => {
+    const check = () => setMobile(window.innerWidth < 768);
+    check();
+    window.addEventListener("resize", check);
+    return () => window.removeEventListener("resize", check);
+  }, []);
 
   return (
-    <div style={{ height: "100vh", width: "100vw", background: "#050816" }}>
-      <Canvas shadows camera={{ position: [0, 0.95, 10.05], fov: 35 }}>
+    <div
+      style={{
+        height: "100dvh",
+        width: "100vw",
+        background: "#050816",
+        overflow: "hidden",
+        position: "relative",
+      }}
+    >
+      <Canvas
+        shadows
+        camera={{
+          position: mobile ? [0, 1.05, 15.8] : [0, 0.95, 10.05],
+          fov: mobile ? 46 : 35,
+        }}
+        style={{
+          height: "100%",
+          width: "100%",
+          touchAction: mobile ? "auto" : "none",
+        }}
+      >
         <color attach="background" args={["#050816"]} />
 
         <ambientLight intensity={1.08} />
@@ -1526,14 +1553,22 @@ export default function HeroScene() {
 
         <Stars radius={90} depth={40} count={1800} factor={3} fade />
 
-        <group position={[0, 0.02, 0]} scale={[1.08, 1.08, 1.08]}>
+        <group
+          position={mobile ? [0, -0.06, 0] : [0, 0.02, 0]}
+          scale={mobile ? [0.68, 0.68, 0.68] : [1.08, 1.08, 1.08]}
+        >
           <Desk />
           <Computer active={speakersActive} setActive={setSpeakersActive} />
           <Keyboard />
           <Mouse />
-          <Speaker x={-3.95} active={speakersActive} />
-          <Speaker x={3.95} active={speakersActive} />
-          <FloatingDecor />
+
+          {!mobile && (
+            <>
+              <Speaker x={-3.95} active={speakersActive} />
+              <Speaker x={3.95} active={speakersActive} />
+              <FloatingDecor />
+            </>
+          )}
         </group>
 
         <ContactShadows
@@ -1545,13 +1580,13 @@ export default function HeroScene() {
         />
 
         <OrbitControls
-          enableRotate
-          enableZoom
+          enableRotate={!mobile}
+          enableZoom={!mobile}
           enablePan={false}
           enableDamping
           dampingFactor={0.08}
-          minDistance={8.0}
-          maxDistance={12.0}
+          minDistance={mobile ? 13.5 : 8.0}
+          maxDistance={mobile ? 17.5 : 12.0}
           minPolarAngle={0}
           maxPolarAngle={Math.PI}
         />
