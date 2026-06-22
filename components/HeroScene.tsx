@@ -46,7 +46,11 @@ function Keyboard() {
     <group position={[0, -1.62, 0.78]} rotation={[-0.14, 0, 0]}>
       <mesh castShadow>
         <boxGeometry args={[4.05, 0.13, 1.68]} />
-        <meshStandardMaterial color="#0f172a" metalness={0.24} roughness={0.42} />
+        <meshStandardMaterial
+          color="#0f172a"
+          metalness={0.24}
+          roughness={0.42}
+        />
       </mesh>
 
       <mesh position={[0, 0.065, 0]}>
@@ -79,7 +83,7 @@ function Keyboard() {
               />
             </mesh>
           );
-        })
+        }),
       )}
 
       <mesh position={[0, 0.108, 0.58]} castShadow>
@@ -105,10 +109,18 @@ function Mouse() {
 
       <mesh scale={[0.42, 0.16, 0.58]} castShadow>
         <sphereGeometry args={[1, 32, 32]} />
-        <meshStandardMaterial color="#9ca3af" metalness={0.18} roughness={0.35} />
+        <meshStandardMaterial
+          color="#9ca3af"
+          metalness={0.18}
+          roughness={0.35}
+        />
       </mesh>
 
-      <mesh position={[0, 0.18, -0.18]} rotation={[Math.PI / 2, 0, 0]} castShadow>
+      <mesh
+        position={[0, 0.18, -0.18]}
+        rotation={[Math.PI / 2, 0, 0]}
+        castShadow
+      >
         <cylinderGeometry args={[0.055, 0.055, 0.18, 32]} />
         <meshStandardMaterial
           color="#22d3ee"
@@ -541,6 +553,67 @@ function ComputerScreen({
             transform: translateX(-50%);
           }
         }
+
+
+        @media (max-width: 1100px) {
+          .portfolio-scroll > section {
+            padding: 24px !important;
+          }
+
+          .portfolio-scroll > section:nth-child(1) {
+            grid-template-columns: 1fr 1fr !important;
+            gap: 16px !important;
+          }
+
+          .portfolio-scroll > section:nth-child(1) h1 {
+            font-size: 38px !important;
+            letter-spacing: -2px !important;
+          }
+
+          .portfolio-scroll > section:nth-child(1) p {
+            font-size: 14px !important;
+            line-height: 1.38 !important;
+          }
+
+          .portfolio-scroll > section:nth-child(3) > div:last-child {
+            grid-template-columns: 1fr !important;
+          }
+
+          .portfolio-scroll > section:nth-child(4) {
+            grid-template-columns: 1fr !important;
+            gap: 16px !important;
+          }
+        }
+
+        @media (max-width: 520px) {
+          .portfolio-scroll > section {
+            padding: 20px !important;
+          }
+
+          .portfolio-scroll > section:nth-child(1) {
+            grid-template-columns: 1fr 1fr !important;
+            gap: 12px !important;
+          }
+
+          .portfolio-scroll > section:nth-child(1) h1 {
+            font-size: 34px !important;
+          }
+
+          .portfolio-scroll > section:nth-child(1) p {
+            font-size: 12px !important;
+            line-height: 1.25 !important;
+          }
+
+          .portfolio-scroll > section:nth-child(1) span {
+            font-size: 10px !important;
+            padding: 7px 8px !important;
+          }
+
+          .screen-cube-stage {
+            transform: scale(0.86);
+            transform-origin: center top;
+          }
+        }
       `}</style>
 
       <div
@@ -589,9 +662,30 @@ function ComputerScreen({
           }}
         >
           <div style={{ display: "flex", gap: "8px" }}>
-            <span style={{ width: 10, height: 10, borderRadius: "50%", background: "#ef4444" }} />
-            <span style={{ width: 10, height: 10, borderRadius: "50%", background: "#f59e0b" }} />
-            <span style={{ width: 10, height: 10, borderRadius: "50%", background: "#22c55e" }} />
+            <span
+              style={{
+                width: 10,
+                height: 10,
+                borderRadius: "50%",
+                background: "#ef4444",
+              }}
+            />
+            <span
+              style={{
+                width: 10,
+                height: 10,
+                borderRadius: "50%",
+                background: "#f59e0b",
+              }}
+            />
+            <span
+              style={{
+                width: 10,
+                height: 10,
+                borderRadius: "50%",
+                background: "#22c55e",
+              }}
+            />
           </div>
 
           <div className="hello-strip-wrapper">
@@ -607,8 +701,6 @@ function ComputerScreen({
               <span>Hallo</span>
             </div>
           </div>
-
-          
         </div>
 
         <div
@@ -616,6 +708,8 @@ function ComputerScreen({
           onWheel={(e) => e.stopPropagation()}
           onPointerDown={(e) => e.stopPropagation()}
           onPointerMove={(e) => e.stopPropagation()}
+          onTouchStart={(e) => e.stopPropagation()}
+          onTouchMove={(e) => e.stopPropagation()}
           style={{
             height: "496px",
             overflowY: "auto",
@@ -626,353 +720,362 @@ function ComputerScreen({
             scrollSnapType: "y mandatory",
           }}
         >
-  <section
-  style={{
-    minHeight: "496px",
-    padding: "30px 34px",
-    display: "grid",
-    gridTemplateColumns: "1.08fr 0.92fr",
-    gap: "24px",
-    alignItems: "center",
-    scrollSnapAlign: "start",
-  }}
->
-  {/* LEFT SIDE */}
-  <div>
-    <div
-      style={{
-        display: "inline-flex",
-        width: "fit-content",
-        padding: "9px 15px",
-        borderRadius: "999px",
-        background: "rgba(56,189,248,0.12)",
-        border: "1px solid rgba(56,189,248,0.24)",
-        color: "#67e8f9",
-        fontSize: "14px",
-        fontWeight: 950,
-        marginBottom: "16px",
-      }}
-    >
-      FULL STACK + ML DEVELOPER
-    </div>
-
-    <h1
-      style={{
-        margin: 0,
-        fontSize: "44px",
-        lineHeight: "0.92",
-        letterSpacing: "-3px",
-        fontWeight: 950,
-      }}
-    >
-      Tarshdeep
-      <br />
-      Kaur
-    </h1>
-
-    <p
-      style={{
-        marginTop: "16px",
-        marginBottom: 0,
-        fontSize: "18px",
-        lineHeight: "1.55",
-        color: "#dbeafe",
-        fontWeight: 650,
-        maxWidth: "500px",
-      }}
-    >
-      I build full-stack applications, machine learning systems, and clean
-      digital experiences that feel practical, modern, and visually engaging.
-    </p>
-
-    <p
-      style={{
-        marginTop: "8px",
-        marginBottom: 0,
-        fontSize: "16px",
-        lineHeight: "1.5",
-        color: "#cbd5e1",
-        fontWeight: 600,
-        maxWidth: "520px",
-      }}
-    >
-      Currently exploring real-world AI workflows and interactive interfaces
-      that blend design with functionality.
-    </p>
-
-    <div
-      style={{
-        marginTop: "18px",
-        display: "flex",
-        gap: "10px",
-        flexWrap: "wrap",
-      }}
-    >
-      {[
-        "Open to Internships",
-        "ML + Web Dev",
-        "Hackathon Builder",
-        "Problem Solver",
-      ].map((item) => (
-        <span
-          key={item}
-          style={{
-            padding: "9px 12px",
-            borderRadius: "999px",
-            background: "rgba(255,255,255,0.06)",
-            border: "1px solid rgba(255,255,255,0.1)",
-            color: "#ffffff",
-            fontSize: "12px",
-            fontWeight: 850,
-          }}
-        >
-          {item}
-        </span>
-      ))}
-    </div>
-  </div>
-
-  {/* RIGHT SIDE */}
-  <div
-    style={{
-      display: "flex",
-      flexDirection: "column",
-      justifyContent: "space-between",
-      height: "100%",
-      gap: "14px",
-    }}
-  >
-    {/* IMAGE CARD */}
-    <div
-      style={{
-        flex: 1,
-        borderRadius: "30px",
-        position: "relative",
-        overflow: "hidden",
-        background:
-          "radial-gradient(circle at 20% 15%, rgba(56,189,248,0.16), transparent 30%), radial-gradient(circle at 82% 12%, rgba(168,85,247,0.2), transparent 32%), #020617",
-        border: "1px solid rgba(255,255,255,0.12)",
-        boxShadow:
-          "0 18px 42px rgba(0,0,0,0.28), inset 0 0 24px rgba(56,189,248,0.06)",
-      }}
-    >
-      <img
-        src="/image.webp"
-        alt="AI girl"
-        style={{
-          position: "absolute",
-          right: "0px",
-          bottom: "0px",
-          height: "100%",
-          width: "100%",
-          objectFit: "cover",
-          objectPosition: "center",
-          filter:
-            "drop-shadow(0 18px 26px rgba(0,0,0,0.45)) saturate(1.08) contrast(1.05)",
-        }}
-      />
-
-      <div
-        style={{
-          position: "absolute",
-          inset: 0,
-          background:
-            "linear-gradient(90deg, rgba(2,6,23,0.58) 0%, rgba(2,6,23,0.18) 45%, transparent 100%)",
-          pointerEvents: "none",
-        }}
-      />
-
-      <div
-        style={{
-          position: "absolute",
-          inset: 0,
-          background:
-            "radial-gradient(circle at 20% 15%, rgba(56,189,248,0.18), transparent 34%), radial-gradient(circle at 85% 20%, rgba(168,85,247,0.18), transparent 38%)",
-          mixBlendMode: "screen",
-          opacity: 0.45,
-          pointerEvents: "none",
-        }}
-      />
-
-      <div
-        style={{
-          position: "absolute",
-          left: "18px",
-          top: "18px",
-          zIndex: 2,
-        }}
-      >
-        <div
-          style={{
-            marginTop: "6px",
-            fontSize: "22px",
-            fontWeight: 950,
-            color: "#ffffff",
-            lineHeight: 1.05,
-            textShadow: "0 0 18px rgba(0,0,0,0.45)",
-          }}
-        >
-          Code.
-          <br />
-          Create.
-          <br />
-          Evolve.
-        </div>
-      </div>
-    </div>
-
-    {/* SPOTIFY GRADIENT */}
-    <div
-      style={{
-        borderRadius: "24px",
-        padding: "12px",
-        background:
-          "linear-gradient(135deg, rgba(56,189,248,0.38), rgba(168,85,247,0.3), rgba(15,23,42,0.92))",
-        border: "1px solid rgba(255,255,255,0.18)",
-        boxShadow:
-          "inset 0 0 26px rgba(56,189,248,0.16), 0 0 28px rgba(168,85,247,0.18)",
-        display: "flex",
-        flexDirection: "column",
-        gap: "9px",
-        overflow: "hidden",
-      }}
-    >
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "space-between",
-          alignItems: "center",
-        }}
-      >
-        <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
-          <div
+          <section
             style={{
-              width: "38px",
-              height: "38px",
-              borderRadius: "14px",
-              background:
-                "linear-gradient(135deg, rgba(56,189,248,0.45), rgba(168,85,247,0.42))",
-              border: "1px solid rgba(255,255,255,0.2)",
-              display: "flex",
+              minHeight: "496px",
+              padding: "30px 34px",
+              display: "grid",
+              gridTemplateColumns: "1.08fr 0.92fr",
+              gap: "24px",
               alignItems: "center",
-              justifyContent: "center",
-              fontSize: "18px",
-              fontWeight: 950,
-              color: "#ffffff",
-              boxShadow: "0 0 18px rgba(56,189,248,0.22)",
+              scrollSnapAlign: "start",
             }}
           >
-            ♫
-          </div>
+            {/* LEFT SIDE */}
+            <div>
+              <div
+                style={{
+                  display: "inline-flex",
+                  width: "fit-content",
+                  padding: "9px 15px",
+                  borderRadius: "999px",
+                  background: "rgba(56,189,248,0.12)",
+                  border: "1px solid rgba(56,189,248,0.24)",
+                  color: "#67e8f9",
+                  fontSize: "14px",
+                  fontWeight: 950,
+                  marginBottom: "16px",
+                }}
+              >
+                FULL STACK + ML DEVELOPER
+              </div>
 
-          <div>
-            <div
-              style={{
-                fontSize: "17px",
-                fontWeight: 950,
-                color: "#ffffff",
-                lineHeight: 1,
-              }}
-            >
-              Spotify
+              <h1
+                style={{
+                  margin: 0,
+                  fontSize: "44px",
+                  lineHeight: "0.92",
+                  letterSpacing: "-3px",
+                  fontWeight: 950,
+                }}
+              >
+                Tarshdeep
+                <br />
+                Kaur
+              </h1>
+
+              <p
+                style={{
+                  marginTop: "16px",
+                  marginBottom: 0,
+                  fontSize: "18px",
+                  lineHeight: "1.55",
+                  color: "#dbeafe",
+                  fontWeight: 650,
+                  maxWidth: "500px",
+                }}
+              >
+                I build full-stack applications, machine learning systems, and
+                clean digital experiences that feel practical, modern, and
+                visually engaging.
+              </p>
+
+              <p
+                style={{
+                  marginTop: "8px",
+                  marginBottom: 0,
+                  fontSize: "16px",
+                  lineHeight: "1.5",
+                  color: "#cbd5e1",
+                  fontWeight: 600,
+                  maxWidth: "520px",
+                }}
+              >
+                Currently exploring real-world AI workflows and interactive
+                interfaces that blend design with functionality.
+              </p>
+
+              <div
+                style={{
+                  marginTop: "18px",
+                  display: "flex",
+                  gap: "10px",
+                  flexWrap: "wrap",
+                }}
+              >
+                {[
+                  "Open to Internships",
+                  "ML + Web Dev",
+                  "Hackathon Builder",
+                  "Problem Solver",
+                ].map((item) => (
+                  <span
+                    key={item}
+                    style={{
+                      padding: "9px 12px",
+                      borderRadius: "999px",
+                      background: "rgba(255,255,255,0.06)",
+                      border: "1px solid rgba(255,255,255,0.1)",
+                      color: "#ffffff",
+                      fontSize: "12px",
+                      fontWeight: 850,
+                    }}
+                  >
+                    {item}
+                  </span>
+                ))}
+              </div>
             </div>
 
+            {/* RIGHT SIDE */}
             <div
               style={{
-                marginTop: "4px",
-                fontSize: "10px",
-                color: "#dbeafe",
-                fontWeight: 900,
-                letterSpacing: "0.8px",
+                display: "flex",
+                flexDirection: "column",
+                justifyContent: "space-between",
+                height: "100%",
+                gap: "14px",
               }}
             >
-              PLAYLIST MODE
+              {/* IMAGE CARD */}
+              <div
+                style={{
+                  flex: 1,
+                  borderRadius: "30px",
+                  position: "relative",
+                  overflow: "hidden",
+                  background:
+                    "radial-gradient(circle at 20% 15%, rgba(56,189,248,0.16), transparent 30%), radial-gradient(circle at 82% 12%, rgba(168,85,247,0.2), transparent 32%), #020617",
+                  border: "1px solid rgba(255,255,255,0.12)",
+                  boxShadow:
+                    "0 18px 42px rgba(0,0,0,0.28), inset 0 0 24px rgba(56,189,248,0.06)",
+                }}
+              >
+                <img
+                  src="/image.webp"
+                  alt="AI girl"
+                  style={{
+                    position: "absolute",
+                    right: "0px",
+                    bottom: "0px",
+                    height: "100%",
+                    width: "100%",
+                    objectFit: "cover",
+                    objectPosition: "center",
+                    filter:
+                      "drop-shadow(0 18px 26px rgba(0,0,0,0.45)) saturate(1.08) contrast(1.05)",
+                  }}
+                />
+
+                <div
+                  style={{
+                    position: "absolute",
+                    inset: 0,
+                    background:
+                      "linear-gradient(90deg, rgba(2,6,23,0.58) 0%, rgba(2,6,23,0.18) 45%, transparent 100%)",
+                    pointerEvents: "none",
+                  }}
+                />
+
+                <div
+                  style={{
+                    position: "absolute",
+                    inset: 0,
+                    background:
+                      "radial-gradient(circle at 20% 15%, rgba(56,189,248,0.18), transparent 34%), radial-gradient(circle at 85% 20%, rgba(168,85,247,0.18), transparent 38%)",
+                    mixBlendMode: "screen",
+                    opacity: 0.45,
+                    pointerEvents: "none",
+                  }}
+                />
+
+                <div
+                  style={{
+                    position: "absolute",
+                    left: "18px",
+                    top: "18px",
+                    zIndex: 2,
+                  }}
+                >
+                  <div
+                    style={{
+                      marginTop: "6px",
+                      fontSize: "22px",
+                      fontWeight: 950,
+                      color: "#ffffff",
+                      lineHeight: 1.05,
+                      textShadow: "0 0 18px rgba(0,0,0,0.45)",
+                    }}
+                  >
+                    Code.
+                    <br />
+                    Create.
+                    <br />
+                    Evolve.
+                  </div>
+                </div>
+              </div>
+
+              {/* SPOTIFY GRADIENT */}
+              <div
+                style={{
+                  borderRadius: "24px",
+                  padding: "12px",
+                  background:
+                    "linear-gradient(135deg, rgba(56,189,248,0.38), rgba(168,85,247,0.3), rgba(15,23,42,0.92))",
+                  border: "1px solid rgba(255,255,255,0.18)",
+                  boxShadow:
+                    "inset 0 0 26px rgba(56,189,248,0.16), 0 0 28px rgba(168,85,247,0.18)",
+                  display: "flex",
+                  flexDirection: "column",
+                  gap: "9px",
+                  overflow: "hidden",
+                }}
+              >
+                <div
+                  style={{
+                    display: "flex",
+                    justifyContent: "space-between",
+                    alignItems: "center",
+                  }}
+                >
+                  <div
+                    style={{
+                      display: "flex",
+                      alignItems: "center",
+                      gap: "10px",
+                    }}
+                  >
+                    <div
+                      style={{
+                        width: "38px",
+                        height: "38px",
+                        borderRadius: "14px",
+                        background:
+                          "linear-gradient(135deg, rgba(56,189,248,0.45), rgba(168,85,247,0.42))",
+                        border: "1px solid rgba(255,255,255,0.2)",
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        fontSize: "18px",
+                        fontWeight: 950,
+                        color: "#ffffff",
+                        boxShadow: "0 0 18px rgba(56,189,248,0.22)",
+                      }}
+                    >
+                      ♫
+                    </div>
+
+                    <div>
+                      <div
+                        style={{
+                          fontSize: "17px",
+                          fontWeight: 950,
+                          color: "#ffffff",
+                          lineHeight: 1,
+                        }}
+                      >
+                        Spotify
+                      </div>
+
+                      <div
+                        style={{
+                          marginTop: "4px",
+                          fontSize: "10px",
+                          color: "#dbeafe",
+                          fontWeight: 900,
+                          letterSpacing: "0.8px",
+                        }}
+                      >
+                        PLAYLIST MODE
+                      </div>
+                    </div>
+                  </div>
+
+                  <button
+                    onClick={() => setActive(!active)}
+                    style={{
+                      border: "1px solid rgba(255,255,255,0.18)",
+                      borderRadius: "999px",
+                      padding: "7px 11px",
+                      background: active
+                        ? "linear-gradient(135deg, rgba(56,189,248,0.5), rgba(168,85,247,0.42))"
+                        : "rgba(255,255,255,0.08)",
+                      color: "#ffffff",
+                      fontSize: "10px",
+                      fontWeight: 950,
+                      cursor: "pointer",
+                      pointerEvents: "auto",
+                      boxShadow: active
+                        ? "0 0 14px rgba(168,85,247,0.35)"
+                        : "none",
+                    }}
+                  >
+                    {active ? "FX On" : "FX"}
+                  </button>
+                </div>
+
+                <div
+                  style={{
+                    height: "86px",
+                    borderRadius: "16px",
+                    overflow: "hidden",
+                    background:
+                      "linear-gradient(135deg, rgba(57, 121, 148, 0.24), rgba(168,85,247,0.2), rgba(15,23,42,0.95))",
+                    border: "1px solid rgba(255,255,255,0.16)",
+                    boxShadow:
+                      "inset 0 0 22px rgba(56,189,248,0.12), 0 0 16px rgba(168,85,247,0.12)",
+                    position: "relative",
+                  }}
+                >
+                  <iframe
+                    src="https://open.spotify.com/embed/playlist/37i9dQZF1DX4WYpdgoIcn6?utm_source=generator&theme=0"
+                    width="100%"
+                    height="86"
+                    allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                    loading="lazy"
+                    style={{
+                      border: "none",
+                      width: "100%",
+                      height: "86px",
+                      display: "block",
+                      background: "transparent",
+                      pointerEvents: "auto",
+                      position: "relative",
+                      zIndex: 1,
+                      filter: "saturate(1.12) brightness(0.9) contrast(1.08)",
+                    }}
+                  />
+
+                  <div
+                    style={{
+                      position: "absolute",
+                      inset: 0,
+                      zIndex: 2,
+                      background:
+                        "linear-gradient(135deg, rgba(40, 154, 202, 0.32), rgba(77, 14, 136, 0.28))",
+                      mixBlendMode: "screen",
+                      opacity: 0.5,
+                      pointerEvents: "none",
+                    }}
+                  />
+
+                  <div
+                    style={{
+                      position: "absolute",
+                      inset: 0,
+                      zIndex: 3,
+                      background:
+                        "radial-gradient(circle at 12% 8%, rgba(56,189,248,0.3), transparent 36%), radial-gradient(circle at 88% 18%, rgba(168,85,247,0.3), transparent 42%)",
+                      mixBlendMode: "overlay",
+                      opacity: 0.48,
+                      pointerEvents: "none",
+                    }}
+                  />
+                </div>
+              </div>
             </div>
-          </div>
-        </div>
-
-        <button
-          onClick={() => setActive(!active)}
-          style={{
-            border: "1px solid rgba(255,255,255,0.18)",
-            borderRadius: "999px",
-            padding: "7px 11px",
-            background: active
-              ? "linear-gradient(135deg, rgba(56,189,248,0.5), rgba(168,85,247,0.42))"
-              : "rgba(255,255,255,0.08)",
-            color: "#ffffff",
-            fontSize: "10px",
-            fontWeight: 950,
-            cursor: "pointer",
-            pointerEvents: "auto",
-            boxShadow: active ? "0 0 14px rgba(168,85,247,0.35)" : "none",
-          }}
-        >
-          {active ? "FX On" : "FX"}
-        </button>
-      </div>
-
-      <div
-        style={{
-          height: "86px",
-          borderRadius: "16px",
-          overflow: "hidden",
-          background:
-            "linear-gradient(135deg, rgba(57, 121, 148, 0.24), rgba(168,85,247,0.2), rgba(15,23,42,0.95))",
-          border: "1px solid rgba(255,255,255,0.16)",
-          boxShadow:
-            "inset 0 0 22px rgba(56,189,248,0.12), 0 0 16px rgba(168,85,247,0.12)",
-          position: "relative",
-        }}
-      >
-        <iframe
-          src="https://open.spotify.com/embed/playlist/37i9dQZF1DX4WYpdgoIcn6?utm_source=generator&theme=0"
-          width="100%"
-          height="86"
-          allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-          loading="lazy"
-          style={{
-            border: "none",
-            width: "100%",
-            height: "86px",
-            display: "block",
-            background: "transparent",
-            pointerEvents: "auto",
-            position: "relative",
-            zIndex: 1,
-            filter: "saturate(1.12) brightness(0.9) contrast(1.08)",
-          }}
-        />
-
-        <div
-          style={{
-            position: "absolute",
-            inset: 0,
-            zIndex: 2,
-            background:
-              "linear-gradient(135deg, rgba(40, 154, 202, 0.32), rgba(77, 14, 136, 0.28))",
-            mixBlendMode: "screen",
-            opacity: 0.5,
-            pointerEvents: "none",
-          }}
-        />
-
-        <div
-          style={{
-            position: "absolute",
-            inset: 0,
-            zIndex: 3,
-            background:
-              "radial-gradient(circle at 12% 8%, rgba(56,189,248,0.3), transparent 36%), radial-gradient(circle at 88% 18%, rgba(168,85,247,0.3), transparent 42%)",
-            mixBlendMode: "overlay",
-            opacity: 0.48,
-            pointerEvents: "none",
-          }}
-        />
-      </div>
-    </div>
-  </div>
-</section>
+          </section>
           <section
             style={{
               minHeight: "496px",
@@ -1013,8 +1116,6 @@ function ComputerScreen({
               >
                 Skill Core
               </div>
-
-        
 
               <div className="screen-cube-stage">
                 <div className="screen-cube">
@@ -1066,360 +1167,365 @@ function ComputerScreen({
           </section>
 
           <section
-  style={{
-    minHeight: "496px",
-    padding: "30px 34px",
-    scrollSnapAlign: "start",
-  }}
->
-  <div
-    style={{
-      display: "flex",
-      alignItems: "flex-end",
-      justifyContent: "space-between",
-      marginBottom: "18px",
-    }}
-  >
-    <div>
-     
-
-      <h2
-        style={{
-          margin: 0,
-          fontSize: "34px",
-          lineHeight: 1,
-          fontWeight: 950,
-          letterSpacing: "-2px",
-          color: "#ffffff",
-        }}
-      >
-        Projects
-      </h2>
-    </div>
-  </div>
-
-  <div
-    style={{
-      display: "grid",
-      gridTemplateColumns: "1fr 1fr",
-      gap: "14px",
-    }}
-  >
-    {[
-      {
-        title: "QuantLab",
-        tag: "Python • FastAPI • Finance",
-        desc: "AI-powered quantitative trading platform with backtesting, Sharpe Ratio, drawdown and win-rate analytics.",
-        link: "https://github.com/Tarshdeep2210/QuantLab",
-      },
-      {
-        title: "AI Career Guidance",
-        tag: "React • Node.js • MongoDB",
-        desc: "Full-stack platform with LLM chatbot, personalized roadmaps and career recommendation support.",
-        link: "https://github.com/Tarshdeep2210/Career-Guidance",
-      },
-      {
-        title: "Wildlife Monitoring",
-        tag: "TensorFlow • EfficientNet",
-        desc: "Computer vision system using EfficientNet for animal, empty and poacher scene classification.",
-        link: "https://github.com/Tarshdeep2210/Poaching-detection",
-      },
-      {
-        title: "SPHINX’24 Hackathon",
-        tag: "React • Node.js • Secure APIs",
-        desc: "Secure lawyer-client platform with real-time chat, encrypted file sharing and backend APIs.",
-        link: "https://github.com/HackReposForUs/Sphinx2024",
-      },
-    ].map((project) => (
-      <a
-        key={project.title}
-        href={project.link}
-        target="_blank"
-        rel="noreferrer"
-        onClick={(e) => e.stopPropagation()}
-        onPointerDown={(e) => e.stopPropagation()}
-        onPointerMove={(e) => e.stopPropagation()}
-        style={{
-          textDecoration: "none",
-          color: "inherit",
-          minHeight: "165px",
-          borderRadius: "24px",
-          padding: "18px",
-          background:
-            "linear-gradient(135deg, rgba(56,189,248,0.12), rgba(168,85,247,0.12), rgba(255,255,255,0.04))",
-          border: "1px solid rgba(255,255,255,0.12)",
-          boxShadow:
-            "inset 0 0 20px rgba(56,189,248,0.05), 0 12px 28px rgba(0,0,0,0.18)",
-          display: "flex",
-          flexDirection: "column",
-          justifyContent: "space-between",
-          cursor: "pointer",
-          pointerEvents: "auto",
-          transition:
-            "transform 0.18s ease, border 0.18s ease, box-shadow 0.18s ease",
-        }}
-        onMouseEnter={(e) => {
-          e.currentTarget.style.transform = "translateY(-4px)";
-          e.currentTarget.style.border = "1px solid rgba(103,232,249,0.34)";
-          e.currentTarget.style.boxShadow =
-            "0 18px 36px rgba(0,0,0,0.26), 0 0 22px rgba(56,189,248,0.14)";
-        }}
-        onMouseLeave={(e) => {
-          e.currentTarget.style.transform = "translateY(0px)";
-          e.currentTarget.style.border = "1px solid rgba(255,255,255,0.12)";
-          e.currentTarget.style.boxShadow =
-            "inset 0 0 20px rgba(56,189,248,0.05), 0 12px 28px rgba(0,0,0,0.18)";
-        }}
-      >
-        <div>
-          <div
             style={{
-              display: "flex",
-              justifyContent: "space-between",
-              alignItems: "flex-start",
-              gap: "12px",
+              minHeight: "496px",
+              padding: "30px 34px",
+              scrollSnapAlign: "start",
             }}
           >
-            <h3
+            <div
               style={{
-                margin: 0,
-                fontSize: "22px",
-                fontWeight: 950,
-                color: "#ffffff",
-                letterSpacing: "-0.8px",
-              }}
-            >
-              {project.title}
-            </h3>
-
-            <span
-              style={{
-                width: "30px",
-                height: "30px",
-                borderRadius: "999px",
-                background:
-                  "linear-gradient(135deg, rgba(56,189,248,0.3), rgba(168,85,247,0.28))",
-                border: "1px solid rgba(255,255,255,0.16)",
                 display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                color: "#ffffff",
-                fontSize: "15px",
-                fontWeight: 950,
-                flexShrink: 0,
+                alignItems: "flex-end",
+                justifyContent: "space-between",
+                marginBottom: "18px",
               }}
             >
-              ↗
-            </span>
-          </div>
+              <div>
+                <h2
+                  style={{
+                    margin: 0,
+                    fontSize: "34px",
+                    lineHeight: 1,
+                    fontWeight: 950,
+                    letterSpacing: "-2px",
+                    color: "#ffffff",
+                  }}
+                >
+                  Projects
+                </h2>
+              </div>
+            </div>
 
-          <p
+            <div
+              style={{
+                display: "grid",
+                gridTemplateColumns: "1fr 1fr",
+                gap: "14px",
+              }}
+            >
+              {[
+                {
+                  title: "QuantLab",
+                  tag: "Python • FastAPI • Finance",
+                  desc: "AI-powered quantitative trading platform with backtesting, Sharpe Ratio, drawdown and win-rate analytics.",
+                  link: "https://github.com/Tarshdeep2210/QuantLab",
+                },
+                {
+                  title: "AI Career Guidance",
+                  tag: "React • Node.js • MongoDB",
+                  desc: "Full-stack platform with LLM chatbot, personalized roadmaps and career recommendation support.",
+                  link: "https://github.com/Tarshdeep2210/Career-Guidance",
+                },
+                {
+                  title: "Wildlife Monitoring",
+                  tag: "TensorFlow • EfficientNet",
+                  desc: "Computer vision system using EfficientNet for animal, empty and poacher scene classification.",
+                  link: "https://github.com/Tarshdeep2210/Poaching-detection",
+                },
+                {
+                  title: "SPHINX’24 Hackathon",
+                  tag: "React • Node.js • Secure APIs",
+                  desc: "Secure lawyer-client platform with real-time chat, encrypted file sharing and backend APIs.",
+                  link: "https://github.com/HackReposForUs/Sphinx2024",
+                },
+              ].map((project) => (
+                <a
+                  key={project.title}
+                  href={project.link}
+                  target="_blank"
+                  rel="noreferrer"
+                  onClick={(e) => e.stopPropagation()}
+                  onPointerDown={(e) => e.stopPropagation()}
+                  onPointerMove={(e) => e.stopPropagation()}
+                  style={{
+                    textDecoration: "none",
+                    color: "inherit",
+                    minHeight: "165px",
+                    borderRadius: "24px",
+                    padding: "18px",
+                    background:
+                      "linear-gradient(135deg, rgba(56,189,248,0.12), rgba(168,85,247,0.12), rgba(255,255,255,0.04))",
+                    border: "1px solid rgba(255,255,255,0.12)",
+                    boxShadow:
+                      "inset 0 0 20px rgba(56,189,248,0.05), 0 12px 28px rgba(0,0,0,0.18)",
+                    display: "flex",
+                    flexDirection: "column",
+                    justifyContent: "space-between",
+                    cursor: "pointer",
+                    pointerEvents: "auto",
+                    transition:
+                      "transform 0.18s ease, border 0.18s ease, box-shadow 0.18s ease",
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.transform = "translateY(-4px)";
+                    e.currentTarget.style.border =
+                      "1px solid rgba(103,232,249,0.34)";
+                    e.currentTarget.style.boxShadow =
+                      "0 18px 36px rgba(0,0,0,0.26), 0 0 22px rgba(56,189,248,0.14)";
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.transform = "translateY(0px)";
+                    e.currentTarget.style.border =
+                      "1px solid rgba(255,255,255,0.12)";
+                    e.currentTarget.style.boxShadow =
+                      "inset 0 0 20px rgba(56,189,248,0.05), 0 12px 28px rgba(0,0,0,0.18)";
+                  }}
+                >
+                  <div>
+                    <div
+                      style={{
+                        display: "flex",
+                        justifyContent: "space-between",
+                        alignItems: "flex-start",
+                        gap: "12px",
+                      }}
+                    >
+                      <h3
+                        style={{
+                          margin: 0,
+                          fontSize: "22px",
+                          fontWeight: 950,
+                          color: "#ffffff",
+                          letterSpacing: "-0.8px",
+                        }}
+                      >
+                        {project.title}
+                      </h3>
+
+                      <span
+                        style={{
+                          width: "30px",
+                          height: "30px",
+                          borderRadius: "999px",
+                          background:
+                            "linear-gradient(135deg, rgba(56,189,248,0.3), rgba(168,85,247,0.28))",
+                          border: "1px solid rgba(255,255,255,0.16)",
+                          display: "flex",
+                          alignItems: "center",
+                          justifyContent: "center",
+                          color: "#ffffff",
+                          fontSize: "15px",
+                          fontWeight: 950,
+                          flexShrink: 0,
+                        }}
+                      >
+                        ↗
+                      </span>
+                    </div>
+
+                    <p
+                      style={{
+                        marginTop: "10px",
+                        marginBottom: 0,
+                        fontSize: "13px",
+                        lineHeight: "1.45",
+                        color: "#cbd5e1",
+                        fontWeight: 650,
+                      }}
+                    >
+                      {project.desc}
+                    </p>
+                  </div>
+
+                  <div
+                    style={{
+                      marginTop: "14px",
+                      display: "inline-flex",
+                      width: "fit-content",
+                      padding: "7px 10px",
+                      borderRadius: "999px",
+                      background: "rgba(255,255,255,0.07)",
+                      border: "1px solid rgba(255,255,255,0.1)",
+                      color: "#67e8f9",
+                      fontSize: "11px",
+                      fontWeight: 900,
+                    }}
+                  >
+                    {project.tag}
+                  </div>
+                </a>
+              ))}
+            </div>
+          </section>
+          {/* ACHIEVEMENTS */}
+          <section
             style={{
-              marginTop: "10px",
-              marginBottom: 0,
-              fontSize: "13px",
-              lineHeight: "1.45",
-              color: "#cbd5e1",
-              fontWeight: 650,
+              minHeight: "496px",
+              padding: "34px",
+              scrollSnapAlign: "start",
+              display: "grid",
+              gridTemplateColumns: "0.9fr 1.1fr",
+              gap: "24px",
+              alignItems: "center",
             }}
           >
-            {project.desc}
-          </p>
-        </div>
+            <div>
+              <div
+                style={{
+                  fontSize: "13px",
+                  fontWeight: 950,
+                  color: "#67e8f9",
+                  letterSpacing: "1px",
+                  marginBottom: "8px",
+                }}
+              >
+                ACHIEVEMENT
+              </div>
 
-        <div
-          style={{
-            marginTop: "14px",
-            display: "inline-flex",
-            width: "fit-content",
-            padding: "7px 10px",
-            borderRadius: "999px",
-            background: "rgba(255,255,255,0.07)",
-            border: "1px solid rgba(255,255,255,0.1)",
-            color: "#67e8f9",
-            fontSize: "11px",
-            fontWeight: 900,
-          }}
-        >
-          {project.tag}
-        </div>
-      </a>
-    ))}
-  </div>
-</section>
-{/* ACHIEVEMENTS */}
-<section
-  style={{
-    minHeight: "496px",
-    padding: "34px",
-    scrollSnapAlign: "start",
-    display: "grid",
-    gridTemplateColumns: "0.9fr 1.1fr",
-    gap: "24px",
-    alignItems: "center",
-  }}
->
-  <div>
-    <div
-      style={{
-        fontSize: "13px",
-        fontWeight: 950,
-        color: "#67e8f9",
-        letterSpacing: "1px",
-        marginBottom: "8px",
-      }}
-    >
-      ACHIEVEMENT
-    </div>
+              <h2
+                style={{
+                  margin: 0,
+                  fontSize: "40px",
+                  lineHeight: "0.95",
+                  fontWeight: 950,
+                  letterSpacing: "-2.4px",
+                  color: "#ffffff",
+                }}
+              >
+                SPHINX’24
+                <br />
+                Hackathon
+              </h2>
 
-    <h2
-      style={{
-        margin: 0,
-        fontSize: "40px",
-        lineHeight: "0.95",
-        fontWeight: 950,
-        letterSpacing: "-2.4px",
-        color: "#ffffff",
-      }}
-    >
-      SPHINX’24
-      <br />
-      Hackathon
-    </h2>
+              <p
+                style={{
+                  marginTop: "16px",
+                  marginBottom: 0,
+                  fontSize: "15px",
+                  lineHeight: "1.55",
+                  color: "#cbd5e1",
+                  fontWeight: 650,
+                }}
+              >
+                A competitive hackathon experience where the idea was converted
+                into a working secure communication platform within limited
+                time.
+              </p>
+            </div>
 
-    <p
-      style={{
-        marginTop: "16px",
-        marginBottom: 0,
-        fontSize: "15px",
-        lineHeight: "1.55",
-        color: "#cbd5e1",
-        fontWeight: 650,
-      }}
-    >
-      A competitive hackathon experience where the idea was converted into a
-      working secure communication platform within limited time.
-    </p>
-  </div>
-
-  <div
-    style={{
-      borderRadius: "30px",
-      padding: "26px",
-      background:
-        "linear-gradient(135deg, rgba(56,189,248,0.16), rgba(168,85,247,0.16), rgba(255,255,255,0.05))",
-      border: "1px solid rgba(255,255,255,0.14)",
-      boxShadow:
-        "inset 0 0 28px rgba(56,189,248,0.06), 0 18px 38px rgba(0,0,0,0.22)",
-      position: "relative",
-      overflow: "hidden",
-    }}
-  >
-    <div
-      style={{
-        position: "absolute",
-        right: "-40px",
-        top: "-40px",
-        width: "150px",
-        height: "150px",
-        borderRadius: "999px",
-        background: "rgba(168,85,247,0.18)",
-        filter: "blur(10px)",
-      }}
-    />
-
-    <div
-      style={{
-        position: "relative",
-        zIndex: 2,
-      }}
-    >
-      <div
-        style={{
-          width: "58px",
-          height: "58px",
-          borderRadius: "20px",
-          background:
-            "linear-gradient(135deg, rgba(56,189,248,0.38), rgba(168,85,247,0.36))",
-          border: "1px solid rgba(255,255,255,0.2)",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          fontSize: "28px",
-          boxShadow: "0 0 24px rgba(168,85,247,0.22)",
-          marginBottom: "18px",
-        }}
-      >
-        🏆
-      </div>
-
-      <h3
-        style={{
-          margin: 0,
-          fontSize: "30px",
-          fontWeight: 950,
-          color: "#ffffff",
-          letterSpacing: "-1.3px",
-        }}
-      >
-        1st Runner-Up
-      </h3>
-
-      <div
-        style={{
-          marginTop: "8px",
-          fontSize: "14px",
-          fontWeight: 900,
-          color: "#67e8f9",
-        }}
-      >
-        MNIT Jaipur • 2024
-      </div>
-
-      <p
-        style={{
-          marginTop: "16px",
-          marginBottom: 0,
-          fontSize: "14px",
-          lineHeight: "1.55",
-          color: "#dbeafe",
-          fontWeight: 650,
-        }}
-      >
-        Built a secure lawyer-client communication platform with real-time chat,
-        encrypted file sharing, authentication, and backend APIs.
-      </p>
-
-      <div
-        style={{
-          marginTop: "18px",
-          display: "flex",
-          gap: "9px",
-          flexWrap: "wrap",
-        }}
-      >
-        {["Secure Communication", "Real-time Chat", "Encrypted Files", "Backend APIs"].map(
-          (tag) => (
-            <span
-              key={tag}
+            <div
               style={{
-                padding: "8px 11px",
-                borderRadius: "999px",
-                background: "rgba(255,255,255,0.07)",
-                border: "1px solid rgba(255,255,255,0.1)",
-                color: "#ffffff",
-                fontSize: "11px",
-                fontWeight: 850,
+                borderRadius: "30px",
+                padding: "26px",
+                background:
+                  "linear-gradient(135deg, rgba(56,189,248,0.16), rgba(168,85,247,0.16), rgba(255,255,255,0.05))",
+                border: "1px solid rgba(255,255,255,0.14)",
+                boxShadow:
+                  "inset 0 0 28px rgba(56,189,248,0.06), 0 18px 38px rgba(0,0,0,0.22)",
+                position: "relative",
+                overflow: "hidden",
               }}
             >
-              {tag}
-            </span>
-          )
-        )}
-      </div>
-    </div>
-  </div>
-</section>
+              <div
+                style={{
+                  position: "absolute",
+                  right: "-40px",
+                  top: "-40px",
+                  width: "150px",
+                  height: "150px",
+                  borderRadius: "999px",
+                  background: "rgba(168,85,247,0.18)",
+                  filter: "blur(10px)",
+                }}
+              />
+
+              <div
+                style={{
+                  position: "relative",
+                  zIndex: 2,
+                }}
+              >
+                <div
+                  style={{
+                    width: "58px",
+                    height: "58px",
+                    borderRadius: "20px",
+                    background:
+                      "linear-gradient(135deg, rgba(56,189,248,0.38), rgba(168,85,247,0.36))",
+                    border: "1px solid rgba(255,255,255,0.2)",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    fontSize: "28px",
+                    boxShadow: "0 0 24px rgba(168,85,247,0.22)",
+                    marginBottom: "18px",
+                  }}
+                >
+                  🏆
+                </div>
+
+                <h3
+                  style={{
+                    margin: 0,
+                    fontSize: "30px",
+                    fontWeight: 950,
+                    color: "#ffffff",
+                    letterSpacing: "-1.3px",
+                  }}
+                >
+                  1st Runner-Up
+                </h3>
+
+                <div
+                  style={{
+                    marginTop: "8px",
+                    fontSize: "14px",
+                    fontWeight: 900,
+                    color: "#67e8f9",
+                  }}
+                >
+                  MNIT Jaipur • 2024
+                </div>
+
+                <p
+                  style={{
+                    marginTop: "16px",
+                    marginBottom: 0,
+                    fontSize: "14px",
+                    lineHeight: "1.55",
+                    color: "#dbeafe",
+                    fontWeight: 650,
+                  }}
+                >
+                  Built a secure lawyer-client communication platform with
+                  real-time chat, encrypted file sharing, authentication, and
+                  backend APIs.
+                </p>
+
+                <div
+                  style={{
+                    marginTop: "18px",
+                    display: "flex",
+                    gap: "9px",
+                    flexWrap: "wrap",
+                  }}
+                >
+                  {[
+                    "Secure Communication",
+                    "Real-time Chat",
+                    "Encrypted Files",
+                    "Backend APIs",
+                  ].map((tag) => (
+                    <span
+                      key={tag}
+                      style={{
+                        padding: "8px 11px",
+                        borderRadius: "999px",
+                        background: "rgba(255,255,255,0.07)",
+                        border: "1px solid rgba(255,255,255,0.1)",
+                        color: "#ffffff",
+                        fontSize: "11px",
+                        fontWeight: 850,
+                      }}
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </section>
         </div>
       </div>
     </Html>
@@ -1437,12 +1543,20 @@ function Computer({
     <group position={[0, 0.45, -0.1]}>
       <mesh position={[0, 0.13, -0.08]} castShadow>
         <boxGeometry args={[6.35, 3.65, 0.08]} />
-        <meshStandardMaterial color="#000000" metalness={0.18} roughness={0.55} />
+        <meshStandardMaterial
+          color="#000000"
+          metalness={0.18}
+          roughness={0.55}
+        />
       </mesh>
 
       <mesh position={[0, 0.13, 0.035]} castShadow>
         <boxGeometry args={[6.35, 3.65, 0.045]} />
-        <meshStandardMaterial color="#1f2937" metalness={0.38} roughness={0.32} />
+        <meshStandardMaterial
+          color="#1f2937"
+          metalness={0.38}
+          roughness={0.32}
+        />
       </mesh>
 
       <mesh position={[0, 0.13, 0.075]}>
@@ -1461,12 +1575,20 @@ function Computer({
 
       <mesh position={[0, -1.9, 0]} castShadow>
         <boxGeometry args={[0.24, 0.82, 0.24]} />
-        <meshStandardMaterial color="#1f2937" metalness={0.35} roughness={0.32} />
+        <meshStandardMaterial
+          color="#1f2937"
+          metalness={0.35}
+          roughness={0.32}
+        />
       </mesh>
 
       <mesh position={[0, -2.26, 0.16]} castShadow>
         <boxGeometry args={[1.75, 0.09, 0.9]} />
-        <meshStandardMaterial color="#1f2937" metalness={0.35} roughness={0.34} />
+        <meshStandardMaterial
+          color="#1f2937"
+          metalness={0.35}
+          roughness={0.34}
+        />
       </mesh>
 
       <ComputerScreen active={active} setActive={setActive} />
@@ -1504,37 +1626,49 @@ function FloatingDecor() {
 
 export default function HeroScene() {
   const [speakersActive, setSpeakersActive] = useState(false);
-  const [mobile, setMobile] = useState(false);
+  const [viewportWidth, setViewportWidth] = useState(1200);
 
   useEffect(() => {
-    const check = () => setMobile(window.innerWidth < 768);
+    const check = () => setViewportWidth(window.innerWidth);
     check();
     window.addEventListener("resize", check);
     return () => window.removeEventListener("resize", check);
   }, []);
 
+  const isPhone = viewportWidth <= 520;
+  const isTablet = viewportWidth > 520 && viewportWidth <= 900;
+  const isSmallLaptop = viewportWidth > 900 && viewportWidth <= 1100;
+
+  const cameraPosition: [number, number, number] = isPhone
+    ? [0, 0.95, 14.4]
+    : isTablet
+      ? [0, 0.95, 12.8]
+      : isSmallLaptop
+        ? [0, 0.95, 11.3]
+        : [0, 0.95, 10.05];
+
+  const cameraFov = isPhone ? 45 : isTablet ? 41 : isSmallLaptop ? 38 : 35;
+  const sceneScale = isPhone
+    ? 0.66
+    : isTablet
+      ? 0.82
+      : isSmallLaptop
+        ? 0.96
+        : 1.08;
+  const sceneY = isPhone ? 0.03 : 0.02;
+
   return (
     <div
       style={{
-        height: "100dvh",
+        minHeight: "100svh",
+        height: "100svh",
         width: "100vw",
         background: "#050816",
         overflow: "hidden",
-        position: "relative",
+        touchAction: "none",
       }}
     >
-      <Canvas
-        shadows
-        camera={{
-          position: mobile ? [0, 1.05, 15.8] : [0, 0.95, 10.05],
-          fov: mobile ? 46 : 35,
-        }}
-        style={{
-          height: "100%",
-          width: "100%",
-          touchAction: mobile ? "auto" : "none",
-        }}
-      >
+      <Canvas shadows camera={{ position: cameraPosition, fov: cameraFov }}>
         <color attach="background" args={["#050816"]} />
 
         <ambientLight intensity={1.08} />
@@ -1554,21 +1688,16 @@ export default function HeroScene() {
         <Stars radius={90} depth={40} count={1800} factor={3} fade />
 
         <group
-          position={mobile ? [0, -0.06, 0] : [0, 0.02, 0]}
-          scale={mobile ? [0.68, 0.68, 0.68] : [1.08, 1.08, 1.08]}
+          position={[0, sceneY, 0]}
+          scale={[sceneScale, sceneScale, sceneScale]}
         >
           <Desk />
           <Computer active={speakersActive} setActive={setSpeakersActive} />
           <Keyboard />
           <Mouse />
-
-          {!mobile && (
-            <>
-              <Speaker x={-3.95} active={speakersActive} />
-              <Speaker x={3.95} active={speakersActive} />
-              <FloatingDecor />
-            </>
-          )}
+          <Speaker x={-3.95} active={speakersActive} />
+          <Speaker x={3.95} active={speakersActive} />
+          <FloatingDecor />
         </group>
 
         <ContactShadows
@@ -1580,13 +1709,13 @@ export default function HeroScene() {
         />
 
         <OrbitControls
-          enableRotate={!mobile}
-          enableZoom={!mobile}
+          enableRotate
+          enableZoom
           enablePan={false}
           enableDamping
           dampingFactor={0.08}
-          minDistance={mobile ? 13.5 : 8.0}
-          maxDistance={mobile ? 17.5 : 12.0}
+          minDistance={isPhone ? 11.5 : isTablet ? 10.4 : 8.0}
+          maxDistance={isPhone ? 16.5 : isTablet ? 15.0 : 12.0}
           minPolarAngle={0}
           maxPolarAngle={Math.PI}
         />
